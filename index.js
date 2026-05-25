@@ -113,11 +113,33 @@ function mulaiKalkulator() {
     }
 
     console.log(`\n=> HASIL: ${angka1} ${operator} ${angka2} = ${hasil}`);
-    
+
+    // ==========================================
+    // Analisis Hasil
+    // ==========================================
+    console.log("\n--- Analisis Hasil ---");
+
+    let hasilAkhir = hasil ?? "Hasil tidak ditemukan (null/undefined)";
+
+    if (typeof hasilAkhir === 'string') {
+      console.log(`Peringatan: ${hasilAkhir}`);
+    } else if (typeof hasilAkhir === 'number') {
+      
+      let tanda = (hasilAkhir > 0) ? "Positif" : (hasilAkhir < 0) ? "Negatif" : "Nol";
+      let tipeAngka = Number.isInteger(hasilAkhir) ? "Bilangan Bulat" : "Bilangan Desimal";
+      
+      let sifatAngka = "";
+      if (Number.isInteger(hasilAkhir)) {
+        sifatAngka = (hasilAkhir % 2 === 0) ? " dan Genap" : " dan Ganjil";
+      }
+
+      console.log(`Kategori : Angka ${tanda}`);
+      console.log(`Tipe     : ${tipeAngka}${sifatAngka}`);
+    }
+
 
     break; 
   }
 }
-
 
 mulaiKalkulator();
