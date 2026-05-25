@@ -137,8 +137,24 @@ function mulaiKalkulator() {
       console.log(`Tipe     : ${tipeAngka}${sifatAngka}`);
     }
 
+    // ==========================================
+    // Fungsi Exit
+    // ==========================================
+    console.log("\n------------------------------------------");
+    
+    // Ambil input dari user
+    let tanyaLanjut = prompt("Mau hitung lagi tidak Bos? (y/n): ");
 
-    break; 
+    // Pakai .toLowerCase() biar kebal dari user yang ngetik huruf kapital (N, No, nO)
+    // Pakai || (OR) buat nangkap berbagai variasi jawaban tidak
+    if (tanyaLanjut.toLowerCase() === 'n' || tanyaLanjut.toLowerCase() === 'no') {
+      console.log("\nBaik, Thanks ya udah pakai Kalkulator Ajaib! See you..! \n");
+      break; // Ini yang bertugas menghancurkan loop dan mematikan program
+
+    } else {
+      console.log("\nGas lanjut ngitung!\n");
+      // Kalau selain 'n' atau 'no', loop otomatis akan kembali ke atas (baris pertama dalam while)
+    }
   }
 }
 
